@@ -31,7 +31,7 @@ export const Nav: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
           <Button
-            onClick={() => window.open("https://pump.fun/coin/FtDW33WhcLshkZw4G37GMNqWYQgv4sfTDzqbKjX9pump", "_blank", "noopener,noreferrer")}
+            onClick={() => window.open("https://pump.fun/coin/NuvWyWaGkT7k5uZTkUvLCpqS9iFEzxMkVDWGPC9pump", "_blank", "noopener,noreferrer")}
             variant="ghost"
             className="
               flex items-center gap-2 w-full justify-center rounded-full
