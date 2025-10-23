@@ -1,79 +1,136 @@
 "use client";
 
+import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { Moon, Sun, DollarSign } from "lucide-react";
-import Github from "./logos/GitHub";
-import pkg from "@/package.json";
+import { Moon, Sun, Menu, X, DollarSign } from "lucide-react";
 import { useTheme } from "next-themes";
-import Taggy from "./Taggy";
 import DownloadWhitepaperSimple from "./Download";
-import FuturisticBackground from "./Background";
+import Taggy from "./Taggy";
 
-export const Nav = () => {
+export const Nav: React.FC = () => {
   const { theme, setTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div
-      className={"fixed top-0 right-0 px-4 py-2 flex items-center h-14 z-50"}
+    <header
+      className="
+        fixed top-0 left-0 right-0 z-[1000]
+        backdrop-blur-lg bg-white/20 dark:bg-black/20
+        border-b border-white/10 dark:border-gray-800/60
+        shadow-[0_0_30px_rgba(0,0,0,0.1)]
+      "
     >
-      <div className={"ml-auto flex items-center gap-1"}>
-        <Button
-  onClick={() => window.open("#", "_blank", "noopener,noreferrer")}
-  variant="ghost"
-  className="relative ml-auto flex items-center gap-2 rounded-full px-5 py-2.5
-             overflow-hidden font-medium tracking-wide
-             transition-all duration-300 ease-in-out
-             text-blue-600 dark:text-blue-200
-             bg-blue-100/40 hover:bg-blue-200/60
-             dark:bg-blue-500/10 dark:hover:bg-blue-500/20
-             border border-blue-300/50 dark:border-blue-500/30
-             shadow-md hover:shadow-blue-400/50 dark:shadow-blue-800/50"
->
-  {/* Glow layer */}
-  <span className="absolute inset-0 bg-blue-400 opacity-0 blur-lg 
-                   transition-opacity duration-500 group-hover:opacity-20 dark:group-hover:opacity-30" />
+      <nav
+        className="
+          flex items-center justify-between
+          max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-16
+        "
+      >
+        
 
-  {/* Moving light sweep */}
-  <span className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 
-                   bg-gradient-to-r from-transparent via-blue-400/50 to-transparent 
-                   animate-[shine_2s_linear_infinite]" />
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-4">
+          <Button
+            onClick={() => window.open("#", "_blank", "noopener,noreferrer")}
+            variant="ghost"
+            className="
+              flex items-center gap-2 w-full justify-center rounded-full
+              bg-blue-100/30 dark:bg-blue-500/10
+              hover:bg-blue-200/50 dark:hover:bg-blue-500/30
+              transition-all
+            "
+          >
+            <DollarSign className="size-4" /> Buy $TAG
+          </Button>
 
-  {/* Icon & Text */}
-  <DollarSign className="size-4 relative z-10 text-blue-500 dark:text-blue-300" />
-  <span className="relative z-10">Buy $TAGGY</span>
+          <DownloadWhitepaperSimple />
 
-  <style jsx>{`
-    @keyframes shine {
-      0% {
-        transform: translateX(-100%);
-      }
-      50% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-  `}</style>
-</Button>
-<DownloadWhitepaperSimple />
-<Taggy />
-
-        <Button
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          variant={"ghost"}
-          className={"ml-auto flex items-center gap-1.5 rounded-full"}
-        >
-          <span>
+          <Button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            variant="ghost"
+            className="flex items-center gap-2 rounded-full px-4 py-2 border border-transparent hover:border-blue-400/30 transition-all"
+          >
             {theme === "dark" ? (
-              <Sun className={"size-4"} />
+              <Sun className="size-4" />
             ) : (
-              <Moon className={"size-4"} />
+              <Moon className="size-4" />
             )}
-          </span>
-          <span>{theme === 'dark' ? "Light" : "Dark"} Mode</span>
-        </Button>
-      </div>
-    </div>
+            <span>{theme === "dark" ? "Light" : "Dark"} Mode</span>
+          </Button>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <Button
+            onClick={() => setMenuOpen(!menuOpen)}
+            variant="ghost"
+            className="p-2 rounded-md"
+          >
+            {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+          </Button>
+        </div>
+      </nav>
+
+      {/* Mobile Drawer */}
+      {menuOpen && (
+        <div
+          className="
+            md:hidden flex flex-col items-center gap-4 py-4
+            backdrop-blur-lg bg-white/10 dark:bg-black/40
+            border-t border-white/10 dark:border-gray-800/60
+            animate-slideDown
+          "
+        >
+          <Button
+            onClick={() => window.open("#", "_blank", "noopener,noreferrer")}
+            variant="ghost"
+            className="
+              flex items-center gap-2 w-11/12 justify-center rounded-full
+              bg-blue-100/30 dark:bg-blue-500/10
+              hover:bg-blue-200/50 dark:hover:bg-blue-500/30
+              transition-all
+            "
+          >
+            <DollarSign className="size-4" /> Buy $TAG
+          </Button>
+
+          <div className="w-11/12">
+            <DownloadWhitepaperSimple />
+          </div>
+
+          <Button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            variant="ghost"
+            className="
+              flex items-center gap-2 w-11/12 justify-center rounded-full
+              bg-transparent hover:bg-blue-200/10
+            "
+          >
+            {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+          </Button>
+        </div>
+      )}
+
+      {/* Taggy AI floating bottom-left */}
+
+      <style jsx>{`
+        @keyframes slideDown {
+          0% {
+            opacity: 0;
+            transform: translateY(-10%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.25s ease-out forwards;
+        }
+      `}</style>
+    </header>
   );
 };
+
+export default Nav;

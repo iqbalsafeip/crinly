@@ -6,6 +6,7 @@ import { Nav } from "@/components/Nav";
 import { cn } from "@/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Taggy AI - EVI",
@@ -35,6 +36,7 @@ export default function RootLayout({
           
           <Nav />
           {children}
+          <Footer />
           <Toaster position="top-center" richColors={true} />
         </ThemeProvider>
       </body>
