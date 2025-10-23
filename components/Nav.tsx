@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "./ui/button";
-import { Moon, Sun, Menu, X, DollarSign } from "lucide-react";
+import { Moon, Sun, Menu, X, DollarSign, Twitter } from "lucide-react";
 import { useTheme } from "next-themes";
 import DownloadWhitepaperSimple from "./Download";
 import Taggy from "./Taggy";
@@ -31,7 +31,7 @@ export const Nav: React.FC = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-4">
           <Button
-            onClick={() => window.open("#", "_blank", "noopener,noreferrer")}
+            onClick={() => window.open("https://pump.fun/coin/FwSzeipCjpBV2K2k5NWj5FR5hEKrMauVqrDjrjMjpump", "_blank", "noopener,noreferrer")}
             variant="ghost"
             className="
               flex items-center gap-2 w-full justify-center rounded-full
@@ -41,6 +41,18 @@ export const Nav: React.FC = () => {
             "
           >
             <DollarSign className="size-4" /> Buy $TAG
+          </Button>
+          <Button
+            onClick={() => window.open("https://x.com/TaggyAssistant", "_blank", "noopener,noreferrer")}
+            variant="ghost"
+            className="
+              flex items-center gap-2 w-full justify-center rounded-full
+              bg-blue-100/30 dark:bg-blue-500/10
+              hover:bg-blue-200/50 dark:hover:bg-blue-500/30
+              transition-all
+            "
+          >
+            <Twitter className="size-4" /> Follow on X
           </Button>
 
           <DownloadWhitepaperSimple />
