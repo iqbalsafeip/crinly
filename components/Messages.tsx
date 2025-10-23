@@ -54,7 +54,7 @@ const Messages = forwardRef<
                         "text-xs capitalize font-medium leading-none opacity-50 tracking-tight"
                       )}
                     >
-                      {msg.message.role}
+                      {msg.type === "assistant_message" ? "Taggy" : msg.message.role}
                     </div>
                     <div
                       className={cn(

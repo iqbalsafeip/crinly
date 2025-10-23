@@ -8,8 +8,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Hume AI - EVI - Next.js Starter",
-  description: "A Next.js starter using Hume AI's Empathic Voice Interface",
+  title: "Taggy AI - EVI",
+  description: "Taggy is a conversational AI that adapts to you learning your tone, context, and style to create more natural, meaningful interactions. Built to be personal, intelligent, and ever-evolving.",
 };
 
 export default function RootLayout({
@@ -32,6 +32,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          
           <Nav />
           {children}
           <Toaster position="top-center" richColors={true} />
