@@ -18,7 +18,7 @@ export const Nav = () => {
     >
       <div className={"ml-auto flex items-center gap-1"}>
         <Button
-  onClick={() => window.open(pkg.homepage, "_blank", "noopener,noreferrer")}
+  onClick={() => window.open("#", "_blank", "noopener,noreferrer")}
   variant="ghost"
   className="relative ml-auto flex items-center gap-2 rounded-full px-5 py-2.5
              overflow-hidden font-medium tracking-wide
