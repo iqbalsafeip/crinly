@@ -40,6 +40,14 @@ export function Nav() {
             >
               Follow on X
             </a>
+            <a
+              href="https://pump.fun/coin/EdWf4NfdmdkVTK5jxZuStZs8CJxb5ofSoLnQYATspump"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-block px-4 py-2 rounded-lg text-sm font-medium bg-sky-600 text-white hover:bg-sky-700"
+            >
+              Buy $CYRINLY
+            </a>
 
             <button
               onClick={() => setOpen(!open)}
