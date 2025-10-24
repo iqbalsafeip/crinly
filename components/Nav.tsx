@@ -33,7 +33,7 @@ export function Nav() {
           {/* Right side: action + mobile button */}
           <div className="flex items-center gap-3">
             <a
-              href="https://x.com/CyrinlyAssistant"
+              href="https://x.com/cyrinlyai"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:inline-block px-4 py-2 rounded-lg text-sm font-medium bg-sky-600 text-white hover:bg-sky-700"
