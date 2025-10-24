@@ -13,7 +13,7 @@ export default async function Page() {
   }
 
   return (
-    <div className={"grow flex flex-col bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 text-white"}>
+    <div className={"grow flex flex-col bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 "}>
       <Chat accessToken={accessToken} />
     </div>
   );
