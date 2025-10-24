@@ -30,7 +30,6 @@ export const Footer: React.FC = () => {
           animate-fadeIn
         "
       >
-        <Taggy />
       </div>
 
       <style jsx>{`
