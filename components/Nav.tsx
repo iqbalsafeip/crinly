@@ -13,7 +13,7 @@ export function Nav() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a className="flex items-center" href="/">
-            <Image src={"/logo.png"} width={"200"} height={"40"} />
+            <Image alt="logo" src={"/logo.png"} width={"200"} height={"40"} />
 
           </a>
 
